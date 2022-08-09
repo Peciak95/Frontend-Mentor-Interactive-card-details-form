@@ -7,6 +7,21 @@
 			}
 		}
 	}
+	.main{
+		.form {
+			&__bottom {
+				&-date {
+					&-inputs {
+						@include flexBox(flex, row, flex-start, center);
+						input {
+							width: 50%;
+							margin-right: 0.5em;
+						}
+					}
+				}
+			}
+		}
+	}
 }
 @media (min-width: 375px) {
 	.background {
@@ -52,6 +67,7 @@
 		background-image: url('/images/bg-main-desktop.png');
 		background-size: cover;
 		background-position: center;
+		margin-bottom: 0;
 	}
 	.card {
 		&-front {
@@ -62,6 +78,9 @@
 			top: 380px;
 			left: 45%;
 		}
+	}
+	.main {
+		height: 100vh;
 	}
 }
 @media (min-width: 1200px) {

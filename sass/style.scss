@@ -32,6 +32,7 @@ body {
 	background-size: cover;
 	background-position: center;
 	z-index: 0;
+	margin-bottom: 4em;
 }
 .card {
 	width: 70%;
@@ -87,7 +88,79 @@ body {
 		&__cvc {
 			width: 90%;
 			text-align: right;
-			font-size: .6em;
+			font-size: 0.6em;
+		}
+	}
+}
+.main {
+	width: 100%;
+
+	@include flexBox(flex, row, center, center);
+	.form {
+		@include flexBox(flex, column, center, flex-start);
+		color: $button-label-color;
+		width: 100%;
+		padding: 2em;
+
+		&__label-title {
+			width: 100%;
+			font-size: 0.6em;
+			text-transform: uppercase;
+			font-weight: 500;
+			margin-bottom: 0.8em;
+			text-align: left;
+		}
+		&__input {
+			border-radius: 8px;
+			border: 1px solid $input-value-color;
+			color: $button-label-color;
+			padding: 0.7em;
+			font-size: 0.8em;
+			margin-bottom: 1em;
+			&::placeholder {
+				color: $input-title-color;
+			}
+			&:active {
+				border: 1px solid $active-input-border;
+			}
+		}
+		&__top {
+			margin-bottom: 0.8em;
+			width: 100%;
+			@include flexBox(flex, column, center, center);
+			input {
+				width: 100%;
+			}
+		}
+		&__bottom {
+			@include flexBox(flex, row, space-between, center);
+			width: 100%;
+			&-date {
+				width: 100%;
+				@include flexBox(flex, column, center, flex-start);
+				&-inputs {
+					@include flexBox(flex, column, center, center);
+					input {
+						width: 100%;
+					}
+				}
+			}
+			&-cvc {
+				@include flexBox(flex, column, center, flex-start);
+				margin-left: 0.8em;
+				input {
+					width: 100%;
+				}
+			}
+		}
+		.submit {
+			width: 100%;
+			font-size: 1em;
+			color: $input-value-color;
+			background-color: $button-label-color;
+			border: none;
+			border-radius: 8px;
+			padding: .8em 0;
 		}
 	}
 }
