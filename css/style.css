@@ -13,6 +13,7 @@ html {
 }
 
 body {
+  position: relative;
   font-size: 1.8rem;
   width: 100vw;
   height: 100vh;
@@ -151,6 +152,10 @@ body {
   margin-right: 20px;
 }
 
+.card-front__bottom--date p {
+  display: inline-block;
+}
+
 .card-back {
   bottom: 50px;
   left: 50px;
@@ -194,6 +199,68 @@ body {
           align-items: center;
 }
 
+.main .error {
+  color: #ff5252;
+  font-size: 0.5em;
+  text-align: left;
+  width: 100%;
+  visibility: hidden;
+}
+
+.main .complete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: #21092f;
+  width: 100%;
+  padding: 2em;
+  display: none;
+}
+
+.main .complete__icon {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.main .complete__icon img {
+  width: 15%;
+}
+
+.main .complete__info {
+  margin-bottom: 2em;
+}
+
+.main .complete__info-graduates {
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+
+.main .complete__info-text {
+  font-size: 0.8em;
+}
+
+.main .complete .continue {
+  cursor: pointer;
+  width: 100%;
+  font-size: 1em;
+  color: #dedddf;
+  background-color: #21092f;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 0;
+}
+
 .main .form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -215,20 +282,21 @@ body {
 
 .main .form__label-title {
   width: 100%;
-  font-size: 0.6em;
+  font-size: 0.7em;
   text-transform: uppercase;
   font-weight: 500;
-  margin-bottom: 0.8em;
+  margin: 0.8em 0;
   text-align: left;
 }
 
 .main .form__input {
+  cursor: pointer;
   border-radius: 8px;
   border: 1px solid #dedddf;
   color: #21092f;
   padding: 0.7em;
   font-size: 0.8em;
-  margin-bottom: 1em;
+  margin: 0 0 0.5em 0.2em;
 }
 
 .main .form__input::-webkit-input-placeholder {
@@ -288,6 +356,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  margin-bottom: 1.5em;
 }
 
 .main .form__bottom-date {
@@ -355,7 +424,25 @@ body {
   background-color: #21092f;
   border: none;
   border-radius: 8px;
-  padding: .8em 0;
+  padding: 0.8em 0;
+  cursor: pointer;
+}
+
+.main .form .describe {
+  color: #21092f;
+  text-align: center;
+  font-size: 0.5em;
+  width: 100%;
+  margin-top: 2em;
+}
+
+.main .form .describe a {
+  color: #8e8593;
+  text-decoration: none;
+}
+
+.main .form .describe a:hover {
+  color: #600594;
 }
 
 @media (min-width: 320px) {
@@ -471,6 +558,14 @@ body {
   .main {
     height: 100vh;
   }
+  .main .form {
+    width: 50%;
+    margin-left: 10em;
+  }
+  .main .complete {
+    width: 50%;
+    margin-left: 10em;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -481,6 +576,14 @@ body {
   .card-back {
     top: 380px;
     left: 65%;
+  }
+  .main .form {
+    width: 40%;
+    margin-left: 0;
+  }
+  .main .complete {
+    width: 40%;
+    margin-left: 0;
   }
 }
 /*# sourceMappingURL=style.css.map */

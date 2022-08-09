@@ -13,6 +13,7 @@ html {
 	scroll-behavior: smooth;
 }
 body {
+	position: relative;
 	font-size: 1.8rem;
 	width: 100vw;
 	height: 100vh;
@@ -20,6 +21,7 @@ body {
 	color: $font-color;
 	font-family: 'Space Grotesk', sans-serif;
 }
+
 .wrapper {
 	max-width: 1440px;
 	margin: 0 auto;
@@ -77,6 +79,11 @@ body {
 			&--name {
 				margin-right: 20px;
 			}
+			&--date{
+				p{
+					display: inline-block;
+				}
+			}
 		}
 	}
 	&-back {
@@ -94,29 +101,77 @@ body {
 }
 .main {
 	width: 100%;
-
 	@include flexBox(flex, row, center, center);
+	.error {
+		color: $error;
+		font-size: 0.5em;
+		text-align: left;
+		width: 100%;
+		visibility: hidden;
+	}
+	// .card-number-error{
+	// 	visibility: visible;
+	// }
+
+	.complete {
+		@include flexBox(flex, column, center, center);
+		text-align: center;
+		color: $button-label-color;
+		width: 100%;
+		padding: 2em;
+		display: none;
+		&__icon {
+			width: 100%;
+			margin-bottom: 1em;
+			img {
+				width: 15%;
+			}
+		}
+		&__info {
+			margin-bottom: 2em;
+			&-graduates {
+				margin-bottom: 1em;
+				text-transform: uppercase;
+			}
+			&-text {
+				font-size: 0.8em;
+			}
+		}
+		.continue {
+			cursor: pointer;
+			width: 100%;
+			font-size: 1em;
+			color: $input-value-color;
+			background-color: $button-label-color;
+			border: none;
+			border-radius: 8px;
+			padding: 0.6em 0;
+		}
+	}
+
 	.form {
 		@include flexBox(flex, column, center, flex-start);
+		// display: none;
 		color: $button-label-color;
 		width: 100%;
 		padding: 2em;
 
 		&__label-title {
 			width: 100%;
-			font-size: 0.6em;
+			font-size: 0.7em;
 			text-transform: uppercase;
 			font-weight: 500;
-			margin-bottom: 0.8em;
+			margin: 0.8em 0;
 			text-align: left;
 		}
 		&__input {
+			cursor: pointer;
 			border-radius: 8px;
 			border: 1px solid $input-value-color;
 			color: $button-label-color;
 			padding: 0.7em;
 			font-size: 0.8em;
-			margin-bottom: 1em;
+			margin: 0 0 0.5em 0.2em;
 			&::placeholder {
 				color: $input-title-color;
 			}
@@ -135,6 +190,7 @@ body {
 		&__bottom {
 			@include flexBox(flex, row, space-between, center);
 			width: 100%;
+			margin-bottom: 1.5em;
 			&-date {
 				width: 100%;
 				@include flexBox(flex, column, center, flex-start);
@@ -160,7 +216,22 @@ body {
 			background-color: $button-label-color;
 			border: none;
 			border-radius: 8px;
-			padding: .8em 0;
+			padding: 0.8em 0;
+			cursor: pointer;
+		}
+		.describe {
+			color: $button-label-color;
+			text-align: center;
+			font-size: 0.5em;
+			width: 100%;
+			margin-top: 2em;
+			a {
+				color: $input-title-color;
+				text-decoration: none;
+				&:hover {
+					color: hsl(278, 94%, 30%);
+				}
+			}
 		}
 	}
 }

@@ -82,6 +82,16 @@
 	.main {
 		height: 100vh;
 	}
+	.main{
+		.form {
+			width: 50%;
+			margin-left: 10em;
+		}
+		.complete{
+			width: 50%;
+			margin-left: 10em;
+		}
+	}
 }
 @media (min-width: 1200px) {
 	.card {
@@ -92,6 +102,16 @@
 		&-back {
 			top: 380px;
 			left: 65%;
+		}
+	}
+	.main{
+		.form {
+			width: 40%;
+			margin-left: 0;
+		}
+		.complete{
+			width: 40%;
+			margin-left: 0;
 		}
 	}
 }
