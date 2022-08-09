@@ -1,0 +1,94 @@
+@import '_colors';
+@import '_mixins';
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+body {
+	font-size: 1.8rem;
+	width: 100vw;
+	height: 100vh;
+	@include flexBox(flex, column, flex-start, center);
+	color: $font-color;
+	font-family: 'Space Grotesk', sans-serif;
+}
+.wrapper {
+	max-width: 1440px;
+	margin: 0 auto;
+}
+.background {
+	position: relative;
+	height: 200px;
+	width: 100%;
+	background-image: url('/images/bg-main-mobile.png');
+	background-size: cover;
+	background-position: center;
+	z-index: 0;
+}
+.card {
+	width: 70%;
+	aspect-ratio: 1 / 0.55;
+	background-size: cover;
+	background-position: center;
+	position: absolute;
+	border-radius: 10px;
+	padding: 1em;
+	font-weight: 300;
+	&-front {
+		font-size: 0.6em;
+		bottom: -40px;
+		left: 20px;
+		background-image: url('/images/bg-card-front.png');
+		@include flexBox(flex, column, space-between, center);
+		&__top {
+			width: 100%;
+			height: 20%;
+			@include flexBox(flex, row, flex-start, center);
+			margin-bottom: 0.4em;
+			&--img {
+				height: 100%;
+			}
+		}
+		&__middle {
+			width: 100%;
+			height: 40%;
+			@include flexBox(flex, row, center, center);
+			margin-bottom: 0.4em;
+			&--card-number {
+				letter-spacing: 2px;
+				text-align: center;
+			}
+		}
+		&__bottom {
+			width: 100%;
+			@include flexBox(flex, row, space-between, flex-end);
+			font-weight: lighter;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			&--name {
+				margin-right: 20px;
+			}
+		}
+	}
+	&-back {
+		bottom: 50px;
+		left: 50px;
+		background-image: url('/images/bg-card-back.png');
+		z-index: -1;
+		@include flexBox(flex, column, center, center);
+		&__cvc {
+			width: 90%;
+			text-align: right;
+			font-size: .6em;
+		}
+	}
+}
+@import '_media';

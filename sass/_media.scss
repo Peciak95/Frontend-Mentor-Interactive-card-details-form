@@ -1,0 +1,78 @@
+@media (min-width: 320px) {
+	.card {
+		&-front {
+			font-size: 0.7em;
+			&__middle {
+				@include flexBox(flex, row, flex-start, flex-end);
+			}
+		}
+	}
+}
+@media (min-width: 375px) {
+	.background {
+		height: 240px;
+	}
+	.card {
+		height: 160px;
+		width: 285px;
+		&-front {
+			left: 5%;
+			font-size: 1em;
+			&__middle {
+				@include flexBox(flex, row, flex-start, flex-end);
+			}
+			&__bottom {
+				font-size: 0.6em;
+			}
+		}
+
+		&-back {
+			left: 15%;
+		}
+	}
+}
+@media (min-width: 576px) {
+	.card {
+		&-front {
+			left: 15%;
+		}
+		&-back {
+			left: 25%;
+		}
+	}
+}
+@media (min-width: 768px) {
+	body {
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+	.background {
+		width: 30%;
+		height: 100%;
+		background-image: url('/images/bg-main-desktop.png');
+		background-size: cover;
+		background-position: center;
+	}
+	.card {
+		&-front {
+			top: 200px;
+			left: 20%;
+		}
+		&-back {
+			top: 380px;
+			left: 45%;
+		}
+	}
+}
+@media (min-width: 1200px) {
+	.card {
+		&-front {
+			top: 200px;
+			left: 50%;
+		}
+		&-back {
+			top: 380px;
+			left: 65%;
+		}
+	}
+}
