@@ -43,7 +43,7 @@ body {
   position: relative;
   height: 200px;
   width: 100%;
-  background-image: url("/images/bg-main-mobile.png");
+  background-image: url("images/bg-main-mobile.png");
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -65,7 +65,7 @@ body {
   font-size: 0.6em;
   bottom: -40px;
   left: 20px;
-  background-image: url("/images/bg-card-front.png");
+  background-image: url("images/bg-card-front.png");
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -159,7 +159,7 @@ body {
 .card-back {
   bottom: 50px;
   left: 50px;
-  background-image: url("/images/bg-card-back.png");
+  background-image: url("images/bg-card-back.png");
   z-index: -1;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -566,7 +566,7 @@ body {
   .background {
     width: 30%;
     height: 100%;
-    background-image: url("/images/bg-main-desktop.png");
+    background-image: url("images/bg-main-desktop.png");
     background-size: cover;
     background-position: center;
     margin-bottom: 0;
