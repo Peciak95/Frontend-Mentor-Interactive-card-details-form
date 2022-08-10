@@ -1,14 +1,11 @@
-const numberOnCard = document.querySelector('.card-number')
-const nameOnCard = document.querySelector('.name')
-const monthOnCard = document.querySelector('.month')
-const yearOnCard = document.querySelector('.year')
-const cvcOnCard = document.querySelector('.cvc')
-
 const cardNumberInput = document.querySelector('#card-number')
 const nameInput = document.querySelector('#name')
 const monthInput = document.querySelector('#month')
 const yearInput = document.querySelector('#year')
 const cvcInput = document.querySelector('#cvc')
+
+const allInputs = document.querySelectorAll('.form__input')
+const onCardParagraphs = document.querySelectorAll('.on-card')
 
 const submitBtn = document.querySelector('.submit')
 const continueBtn = document.querySelector('.continue')
@@ -16,18 +13,57 @@ const continueBtn = document.querySelector('.continue')
 const cardNumberError = document.querySelector('.card-number-error')
 const expDateError = document.querySelector('.exp-date-error')
 const cvcError = document.querySelector('.cvc-error')
+const submitError = document.querySelector('.submit-error')
 
 const form = document.querySelector('.form')
 const complete = document.querySelector('.complete')
 
 const cardNumberFormat = (ele, e) => {
-		ele.value = ele.value
-			.replace(/[^\d ]/g, '')
-			.replace(/\W/gi, '')
-			.replace(/(.{4})/g, '$1 ')
-			.trim()
+	ele.value = ele.value
+		.replace(/[^\d ]/g, '')
+		.replace(/\W/gi, '')
+		.replace(/(.{4})/g, '$1 ')
+		.trim()
 }
 
+const clearForm = () => {
+	form.style.display = 'flex'
+	complete.style.display = 'none'
+	window.location.reload(true)
+}
+
+const checkInputs = e => {
+	const parent = e.target.parentElement
+	const error = parent.querySelector('p')
+	if (e.target.value === '') {
+		error.style.visibility = 'visible'
+		e.target.classList.add('error-border')
+	} else if (e.target.value.length > e.target.getAttribute('maxlength')) {
+		e.target.value = e.target.value.slice(0, -1)
+	} else {
+		e.target.classList.remove('error-border')
+		error.style.visibility = 'hidden'
+	}
+	checkMonthCorectness()
+}
+const checkMonthCorectness = () => {
+	if (monthInput.value > 12) {
+		expDateError.textContent = 'year has only 12 months ;)'
+		expDateError.style.visibility = 'visible'
+	} else {
+		expDateError.textContent = `Can't be blank`
+	}
+}
+const reWrite = e => {
+	onCardParagraphs.forEach(paragraph => {
+		let paragraphClass = paragraph.getAttribute('class')
+		if (paragraphClass.includes(e.target.getAttribute('id'))) {
+			paragraph.textContent = e.target.value
+		} else {
+			return
+		}
+	})
+}
 const submit = () => {
 	if (
 		nameInput.value !== '' &&
@@ -38,87 +74,16 @@ const submit = () => {
 	) {
 		form.style.display = 'none'
 		complete.style.display = 'flex'
+		submitError.style.visibility = 'hidden'
 	} else {
-		checkDate()
-		checkMonthLength()
-		checkYearLength()
-		checkCvc()
-		checkCvcLength()
-        checkCardNumber()
+		submitError.style.visibility = 'visible'
 	}
 }
-const checkCardNumber = () => {
-    if (cardNumberInput.value !== '') {
-		cardNumberError.style.visibility = 'hidden'
-	} else {
-		cardNumberError.style.visibility = 'visible'
-	}
-}
-const checkDate = () => {
-	if (monthInput.value === '' || yearInput.value === '') {
-		expDateError.style.visibility = 'visible'
-	} else {
-		expDateError.style.visibility = 'hidden'
-	}
-}
-
-const checkMonthLength = () => {
-	if (monthInput.value.length < 3) {
-		monthOnCard.textContent = monthInput.value
-	} else {
-		monthInput.value = monthInput.value.slice(0, -1)
-	}
-}
-const checkYearLength = () => {
-	if (yearInput.value.length < 3) {
-		yearOnCard.textContent = yearInput.value
-	} else {
-		yearInput.value = yearInput.value.slice(0, -1)
-	}
-}
-
-const checkCvcLength = () => {
-	if (cvcInput.value.length < 4) {
-		cvcOnCard.textContent = cvcInput.value
-	} else {
-		cvcInput.value = cvcInput.value.slice(0, -1)
-	}
-}
-const checkCvc = () => {
-	if (cvcInput.value !== '') {
-		cvcError.style.visibility = 'hidden'
-	} else {
-		cvcError.style.visibility = 'visible'
-	}
-}
-
-const clearForm = () => {
-	form.style.display = 'flex'
-	complete.style.display = 'none'
-    window.location.reload(true)
-}
-nameInput.addEventListener('keyup', () => {
-	nameOnCard.textContent = nameInput.value
-})
-
-monthInput.addEventListener('keyup', () => {
-	checkDate()
-	checkMonthLength()
-	checkYearLength()
-})
-yearInput.addEventListener('keyup', () => {
-	checkDate()
-	checkMonthLength()
-	checkYearLength()
-})
-
-cvcInput.addEventListener('keyup', () => {
-	checkCvc()
-	checkCvcLength()
-})
-
-cardNumberInput.addEventListener('keyup', () => {
-	checkCardNumber()
+allInputs.forEach(input => {
+	input.addEventListener('keyup', e => {
+		checkInputs(e)
+		reWrite(e)
+	})
 })
 submitBtn.addEventListener('click', e => {
 	e.preventDefault()

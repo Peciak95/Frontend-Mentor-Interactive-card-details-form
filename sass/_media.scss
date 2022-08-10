@@ -7,15 +7,27 @@
 			}
 		}
 	}
-	.main{
+	.main {
 		.form {
+			&__input{
+				&--month{
+					flex-basis: 40%
+				}
+				&--year{
+					flex-basis: 40%
+
+				}
+			}
 			&__bottom {
 				&-date {
 					&-inputs {
 						@include flexBox(flex, row, flex-start, center);
+						flex-wrap: wrap;
 						input {
-							width: 50%;
 							margin-right: 0.5em;
+						}
+						p {
+							justify-self: flex-end;
 						}
 					}
 				}
@@ -82,12 +94,12 @@
 	.main {
 		height: 100vh;
 	}
-	.main{
+	.main {
 		.form {
 			width: 50%;
 			margin-left: 10em;
 		}
-		.complete{
+		.complete {
 			width: 50%;
 			margin-left: 10em;
 		}
@@ -104,12 +116,12 @@
 			left: 65%;
 		}
 	}
-	.main{
+	.main {
 		.form {
 			width: 40%;
 			margin-left: 0;
 		}
-		.complete{
+		.complete {
 			width: 40%;
 			margin-left: 0;
 		}
