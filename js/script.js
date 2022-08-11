@@ -45,13 +45,31 @@ const checkInputs = e => {
 		error.style.visibility = 'hidden'
 	}
 	checkMonthCorectness()
+	checkYearCorectness()
+	checkCvcCorectness()
 }
 const checkMonthCorectness = () => {
 	if (monthInput.value > 12) {
 		expDateError.textContent = 'year has only 12 months ;)'
 		expDateError.style.visibility = 'visible'
+	} else if (monthInput.value < 0) {
+		monthInput.value = ""
 	} else {
 		expDateError.textContent = `Can't be blank`
+	}
+}
+const checkYearCorectness = () => {
+	if (yearInput.value < 0) {
+		yearInput.value = ""
+	} else {
+		return
+	}
+}
+const checkCvcCorectness = () => {
+	if (cvcInput.value < 0) {
+		cvcInput.value = ""
+	} else {
+		return
 	}
 }
 const reWrite = e => {
